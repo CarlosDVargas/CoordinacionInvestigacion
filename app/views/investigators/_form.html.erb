@@ -1,0 +1,54 @@
+<div class="container p-5">
+  <%= form_with(model: investigator) do |form| %>
+    <% if investigator.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(investigator.errors.count, "error") %> prohibited this investigator from being saved:</h2>
+        <ul>
+          <% investigator.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row mb-3 text-center">
+      <div class="col-2">
+        <%= form.label "Nombre", style: "display: block"%>
+      </div>
+      <div class="col-10">
+        <%= form.text_field :first_name, class: "form-control"%>
+      </div>
+    </div>
+    <div class="row mb-3 text-center">
+      <div class="col-2">
+        <%= form.label "Apellido", style: "display: block"%>
+      </div>
+      <div class="col-10">
+        <%= form.text_field :last_name, class: "form-control"%>
+      </div>
+    </div>
+    <div class="row mb-3 text-center">
+      <div class="col-2">
+        <%= form.label "Cédula", style: "display: block"%>
+      </div>
+      <div class="col-10">
+        <%= form.text_field :id_card, class: "form-control"%>
+      </div>
+    </div>
+    <div class="row mb-3 text-center">
+      <div class="col-2">
+        <%= form.label "Correo electrónico", style: "display: block"%>
+      </div>
+      <div class="col-10">
+        <%= form.text_field :email, class: "form-control"%>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col">
+        <%= button_tag( :class => "btn btn-primary") do %>
+          <i class="bi bi-check-lg"></i>
+          Guardar
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

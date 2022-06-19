@@ -1,0 +1,28 @@
+<div class="row mt-2 mb-2">
+  <div class="col-4 text-center center">
+    <h5>Filtros:</h5>
+  </div>
+  <div class="col-8">
+    <%= search_form_for @q, url: search_investigators_path, data: { turbo: false } do |f| %>
+      <div class="row">
+        <%= f.label :first_name, 'Nombre' %>
+        <%= f.text_field :first_name_cont, class:"form-control" %>
+      </div>
+      <div class="row">
+        <%= f.label :last_name, 'Apellidos' %>
+        <%= f.text_field :last_name_cont, class:"form-control" %>
+      </div>
+      <div class="row">
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email_cont, class:"form-control" %>
+      </div>
+      <div class="row">
+        <%= f.label :id_card, 'Cédula' %>
+        <%= f.text_field :id_card_start, class:"form-control" %>
+      </div>
+      <div class="row mt-2">
+        <%= f.submit 'Buscar', class:"btn btn-primary" %>
+      </div>
+    <%end%>
+  </div>
+</div>

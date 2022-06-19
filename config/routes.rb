@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   root "pages#home"
 
   devise_for :users, controllers: {
-                             sessions: "users/sessions",
-                             registrations: "users/registrations",
-                           }
+                       sessions: "users/sessions",
+                       registrations: "users/registrations",
+                     }
+
+  resources :investigators do
+    collection do
+      match 'search' => 'investigators#search', via: [:get, :post], as: :search
+    end
+  end
 end

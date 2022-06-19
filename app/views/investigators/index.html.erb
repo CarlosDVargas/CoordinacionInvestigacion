@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <div class="col-md-12">
+      <h1 class="text-center">Investigadores</h1>
+    </div>
+  </div>
+  <%= render 'investigator_filter' %>
+  <div class="row mt-4 mb-4">
+    <div id="investigators">
+      <%= render 'investigator_table' %>
+    </div>
+  </div>
+</div>
+<%= link_to "New investigator", new_investigator_path %>

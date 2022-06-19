@@ -20,8 +20,18 @@
             Investigadores
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Agregar nuevo investigador</a></li>
-            <li><a class="dropdown-item" href="#">Listar investigadores</a></li>
+            <li>
+              <%= link_to new_investigator_path, class:"dropdown-item" do %>
+                <i class="bi bi-person-plus"></i>
+                <span>Agregar nuevo investigador</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to investigators_path, class:"dropdown-item" do %>
+                <i class="bi bi-person"></i>
+                <span>Listar investigadores</span>
+              <% end %>
+            </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
