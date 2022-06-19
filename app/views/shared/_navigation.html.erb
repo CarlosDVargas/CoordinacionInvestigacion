@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <%= link_to "Page Name", root_path, class: "navbar-brand", id: "logo", rel: "prev" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,10 +27,41 @@
           <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <% if current_user %>
+        <form class="d-flex">
+          <div class="row">
+            <div class="col">
+              <div class="me-2">
+                <%= link_to edit_user_registration_path, class:"btn btn-sm btn-primary" do %>
+                  <i class="bi bi-person"></i>
+                  Administrar cuenta
+                <% end %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="me-2">
+                <%= link_to destroy_user_session_path, class:"btn btn-sm btn-primary", data: { turbo_method: :delete } do %>
+                  <i class="bi bi-box-arrow-left"></i>
+                  Cerrar sesión
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </form>
+      <% else %>
+        <form class="d-flex">
+          <div class="row">
+            <div class="col">
+              <div class="me-2">
+                <%= link_to new_user_session_path, class:"btn btn-sm btn-primary" do %>
+                  <i class="bi bi-box-arrow-left"></i>
+                  Iniciar sesión
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </form>
+      <% end %>
     </div>
   </div>
 </nav>
