@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Projects</h1>
-
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <div class="col-md-12">
+      <h1 class="text-center">Projectos</h1>
+    </div>
+  </div>
+  <div class="row mt-4 mb-4">
+    <div id="investigators">
+      <%= render 'project_table', projects: @projects %>
+    </div>
+  </div>
 </div>
 
 <%= link_to "New project", new_project_path %>

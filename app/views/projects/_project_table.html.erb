@@ -1,0 +1,28 @@
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Investigador</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <% project.investigators.each do |investigator| %>
+        <tr>
+          <td><%= project.code %></td>
+          <td><%= project.name %></td>
+          <td><%= investigator %></td>
+          <td>
+            <% if project.project_investigators.find_by(investigator: investigator).role == 0%>
+              Investigador principal
+            <% else %>
+              Investigador secundario
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
