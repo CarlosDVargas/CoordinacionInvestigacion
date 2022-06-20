@@ -1,0 +1,33 @@
+<div class="container p-5">
+  <%= form_with(model: project) do |form| %>
+    <% if project.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+        <ul>
+          <% project.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row form-group">
+      <h5>Datos del proyecto</h5>
+      <div class="mt-2">
+        <%= render 'projects/project_form/project_data_form', project: @project, form: form %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <h5>Agregar investigadores al proyecto</h5>
+      <%= render 'projects/project_form/add_investigator_form', project: @project, investigators: @investigators, form: form %>
+    </div>
+    <div class="row text-center mt-5">
+      <div class="col">
+        <%= button_tag( :class => "btn btn-primary") do %>
+          <i class="bi bi-check-lg"></i>
+          Guardar
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

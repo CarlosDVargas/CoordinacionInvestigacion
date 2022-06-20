@@ -1,0 +1,12 @@
+<div class="container mt-3 pt-5 pb-5 ps-5 pe-5 border border-2 rounded-3">
+  <div class="row mb-3 text-center">
+    <h1 class=>Nuevo proyecto</h1>
+  </div>
+  <div class="row">
+    <%= render "projects/project_form/form", project: @project, investigators: @investigators%>
+  </div>
+</div>
+<br>
+<div>
+  <%= link_to "Back to projects", projects_path %>
+</div>

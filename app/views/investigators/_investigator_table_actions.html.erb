@@ -1,0 +1,8 @@
+<%= link_to edit_investigator_path(investigator), class: 'btn btn-primary' do %>
+  <i class="bi bi-pencil"></i>
+  Editar
+<% end %>
+<%= link_to investigator, method: :delete, data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro?' }, class: 'btn btn-danger' do %>
+  <i class="bi bi-trash"></i>
+  Eliminar
+<% end %>
