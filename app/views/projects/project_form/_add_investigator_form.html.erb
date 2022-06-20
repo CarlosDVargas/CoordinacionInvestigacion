@@ -3,7 +3,7 @@
     <h6 class="text-center"> Investigador principal </h6>
   </div>
   <div class="col-7">
-    <%= form.select :principal_investigator, options_for_select(@investigators.all), {}, class: "form-select"%>
+    <%= form.select :principal_investigator, options_for_select(@investigators.all), {}, data: { select_target: "select", action: "select#select" }, class: "form-select"%>
   </div>
 </div>
 <div class="row mt-4">

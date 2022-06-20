@@ -17,7 +17,7 @@
       </div>
     </div>
     <hr>
-    <div class="row">
+    <div data-controller="select" data-select-hidden-class="hidden" class="row">
       <h5>Agregar investigadores al proyecto</h5>
       <%= render 'projects/project_form/add_investigator_form', project: @project, investigators: @investigators, form: form %>
     </div>

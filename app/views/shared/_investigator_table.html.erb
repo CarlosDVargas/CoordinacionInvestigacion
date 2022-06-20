@@ -14,9 +14,13 @@
       </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody data-select-target="tableRows">
     <% @investigators.each do |investigator| %>
-      <tr>
+      <% if view != 'investigator' %>
+        <tr data-select-target="hidden">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= investigator.id_card %></td>
         <td><%= investigator.first_name %></td>
         <td><%= investigator.last_name %></td>
@@ -26,7 +30,7 @@
             <%= render 'investigators/investigator_table_actions' %>
           <% else %>
             <%= f.fields_for :investigators do |investigator_subform| %>
-             <%= render 'projects/project_form/add_investigator_actions', investigador: investigator, investigator_subform: investigator_subform %>
+              <%= render 'projects/project_form/add_investigator_actions', investigador: investigator, investigator_subform: investigator_subform %>
             <%end%>
           <% end %>
         </td>
