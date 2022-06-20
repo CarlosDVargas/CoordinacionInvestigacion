@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
     create_project
     respond_to do |format|
       if @project.save
+        add_investigators_to_project
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
       else
@@ -82,9 +83,18 @@ class ProjectsController < ApplicationController
     @project.name = params[:project][:name]
   end
 
+  def add_investigators_to_project
+    @investigators_to_add.each { |investigator| 
+      if investigator == @investigators_to_add.first then 
+        @project_investigator = ProjectInvestigator.create(project_id: @project.id, investigator_id: investigator.id, role: 0)
+      else
+         @project_investigator = ProjectInvestigator.create(project_id: @project.id, investigator_id: investigator.id, role: 1) 
+      end }
+  end
+
   def get_investigators_passed_in_params
     @investigators_to_add = Array.new
-    principal_investigator_id_card = params[:project][:principal_investigator].split('-')[0]
+    principal_investigator_id_card = params[:project][:principal_investigator].split("-")[0]
     principal_investigator = Investigator.find_by(id_card: principal_investigator_id_card)
     @investigators_to_add << principal_investigator
     params[:project][:investigators].each { |investigator|

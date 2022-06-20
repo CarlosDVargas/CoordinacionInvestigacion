@@ -6,21 +6,21 @@ export default class extends Controller {
     static classes = ["hidden"];
 
     connect() {
-        console.log("Connected");
         var option = document.createElement("option");
         option.text = "Seleccione una opción";
         option.selected = true;
         option.disabled = true;
         this.selectTarget.add(option);
-        console.log(this.tableRowsTarget.rows[0])
     }
 
     select() {
         let options = this.selectTarget
         let rows = this.tableRowsTarget.rows
+        let selectedOptionIndex = options.selectedIndex
         for (let i = 0; i < rows.length; i++) {
             rows[i].hidden = false;
         }
-        rows[options.selectedIndex].hidden = true;
+        rows[selectedOptionIndex].hidden = true;
+        rows[selectedOptionIndex].cells[4].getElementsByClassName("project_investigators")[0].checked = false;
     }
 }
