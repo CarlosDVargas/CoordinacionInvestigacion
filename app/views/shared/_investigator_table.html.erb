@@ -27,7 +27,7 @@
         <td><%= investigator.email %></td>
         <td>
           <% if view == 'investigator' %>
-            <%= render 'investigators/investigator_table_actions' %>
+            <%= render 'investigators/investigator_table_actions', investigator: investigator %>
           <% else %>
             <%= f.fields_for :investigators do |investigator_subform| %>
               <%= render 'projects/project_form/add_investigator_actions', investigador: investigator, investigator_subform: investigator_subform %>
