@@ -50,8 +50,18 @@
               Actas
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Agregar nueva acta</a></li>
-              <li><a class="dropdown-item" href="#">Listar actas</a></li>
+              <li>
+                <%= link_to new_minute_path, class:"dropdown-item" do %>
+                  <i class="bi bi-person-plus"></i>
+                  <span>Agregar nueva acta</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to minutes_path, class:"dropdown-item" do %>
+                  <i class="bi bi-person"></i>
+                  <span>Listar actas</span>
+                <% end %>
+              </li>
             </ul>
           </li>
         </ul>

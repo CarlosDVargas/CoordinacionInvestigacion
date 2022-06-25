@@ -1,0 +1,16 @@
+<div class="container">
+  <div id="<%= dom_id minute %>">
+    <p>
+      <strong>Número:</strong>
+      <%= minute.number %>
+    </p>
+    <p>
+      <strong>Fecha:</strong>
+      <%= minute.date %>
+    </p>
+    <p>
+      <strong>Documento:</strong>
+      <%= link_to minute.file.filename, rails_blob_path(minute.file, disposition: "file") %>
+    </p>
+  </div>
+</div>

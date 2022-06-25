@@ -1,0 +1,34 @@
+<div class="container">
+  <%= form_with(model: minute) do |form| %>
+    <% if minute.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(minute.errors.count, "error") %> prohibited this minute from being saved:</h2>
+        <ul>
+          <% minute.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row pb-2">
+      <%= form.label "Número", style: "display: block"%>
+      <%= form.number_field :number, class: "form-control" %>
+    </div>
+    <div class="row pb-2">
+      <%= form.label "Fecha", style: "display: block"%>
+      <%= form.date_field :date, class: "form-control" %>
+    </div>
+    <div class="row pb-2">
+      <%= form.label "Documento de acta", style: "display: block"%>
+      <%= form.file_field :file, class: "form-control", direct_upload: true %>
+    </div>
+    <div class="row pt-4">
+      <div class="col text-center">
+        <%= button_tag( :class => "btn btn-primary") do %>
+          <i class="bi bi-check-lg"></i>
+          Guardar
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
