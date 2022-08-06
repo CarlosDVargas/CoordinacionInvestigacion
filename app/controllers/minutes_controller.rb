@@ -1,5 +1,6 @@
 class MinutesController < ApplicationController
   before_action :set_minute, only: %i[ show edit update destroy ]
+  before_action :set_projects, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /minutes or /minutes.json
   def index
@@ -13,6 +14,7 @@ class MinutesController < ApplicationController
   # GET /minutes/new
   def new
     @minute = Minute.new
+    @minute.id = Minute.last.id + 1
   end
 
   # GET /minutes/1/edit
@@ -66,5 +68,9 @@ class MinutesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def minute_params
       params.require(:minute).permit(:number, :date, :file)
+    end
+
+    def set_projects
+      @projects = Project.all
     end
 end

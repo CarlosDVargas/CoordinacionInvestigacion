@@ -22,6 +22,11 @@
       <%= form.label "Documento de acta", style: "display: block"%>
       <%= form.file_field :file, class: "form-control", direct_upload: true %>
     </div>
+    <br>
+    <hr>
+    <div class="row pb-2">
+      <%= render "minutes/articles/articles_form", minute: minute %>
+    </div>
     <div class="row pt-4">
       <div class="col text-center">
         <%= button_tag( :class => "btn btn-primary") do %>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  minute_id: 1
+  project_id: 1
+
+two:
+  number: MyString
+  minute_id: 1
+  project_id: 1
