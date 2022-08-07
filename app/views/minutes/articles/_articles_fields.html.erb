@@ -10,13 +10,13 @@
     <div class="col-2">
       <%= f.text_field :number, class: "form-control" %>
     </div>
-    <div class="col-2">
+    <div class="col-1">
       <%= f.label :project_id, "Proyecto", style: "display: block" %>
     </div>
     <div class="col-4">
       <%= f.select :project_id, options_for_select(@projects.all.map{|project| [project.code + " - " + project.name , project.id]}), {}, class: "form-select" %>
     </div>
-    <div class="col-2">
+    <div class="col-3">
       <div class="btn-group">
         <%= link_to  "#", data: { action: "click->nested-form#remove_association" }, class:"btn btn-sm btn-danger" do %>
           <i class="bi bi-trash"></i>

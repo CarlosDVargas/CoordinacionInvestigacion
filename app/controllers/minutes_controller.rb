@@ -14,7 +14,6 @@ class MinutesController < ApplicationController
   # GET /minutes/new
   def new
     @minute = Minute.new
-    @minute.id = Minute.last.id + 1
   end
 
   # GET /minutes/1/edit
@@ -23,10 +22,12 @@ class MinutesController < ApplicationController
 
   # POST /minutes or /minutes.json
   def create
+    byebug 
     @minute = Minute.new(minute_params)
-
+    articles = recieve_articles
     respond_to do |format|
       if @minute.save
+        articles.each { |article| Article.create(number: article[:number], minute_id: @minute.id, project_id: article[:project_id]) }
         format.html { redirect_to minute_url(@minute), notice: "Minute was successfully created." }
         format.json { render :show, status: :created, location: @minute }
       else
@@ -67,10 +68,16 @@ class MinutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def minute_params
-      params.require(:minute).permit(:number, :date, :file)
+      params.require(:minute).permit(:number, :date, :file, articles: [:_destroy, :number, :minute_id, :project_id])
     end
 
     def set_projects
       @projects = Project.all
+    end
+
+    def recieve_articles
+      if params[:minute]
+        return params[:minute][:articles_attributes].values
+      end
     end
 end

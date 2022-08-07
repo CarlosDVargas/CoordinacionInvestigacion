@@ -7,9 +7,9 @@ export default class extends Controller {
 
     add_association(event) {
         event.preventDefault();
-        var content = "<br>";
+        var content = '<div class="mt-3">';
         content += this.templateTarget.innerHTML.replace(/TEMPLATE_RECORD/g, Math.floor(Math.random() * 20));
-        content += "<br>";
+        content += '</div>';
         this.add_itemTarget.insertAdjacentHTML('afterend', content);
     }
 
