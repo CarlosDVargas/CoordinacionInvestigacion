@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @agreement %>
+
+<div>
+  <%= link_to "Edit this agreement", edit_agreement_path(@agreement) %> |
+  <%= link_to "Back to agreements", agreements_path %>
+
+  <%= button_to "Destroy this agreement", @agreement, method: :delete %>
+</div>

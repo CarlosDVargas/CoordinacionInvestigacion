@@ -1,0 +1,27 @@
+<%= form_with(model: agreement) do |form| %>
+  <% if agreement.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(agreement.errors.count, "error") %> prohibited this agreement from being saved:</h2>
+
+      <ul>
+        <% agreement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :agreementNumber, style: "display: block" %>
+    <%= form.number_field :agreementNumber %>
+  </div>
+
+  <div>
+    <%= form.label :articleNumber, style: "display: block" %>
+    <%= form.number_field :articleNumber %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
