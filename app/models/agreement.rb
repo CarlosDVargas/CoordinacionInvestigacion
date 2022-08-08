@@ -1,6 +1,6 @@
 class Agreement < ApplicationRecord
-     #has_one :articles
-     #has_many :transaction
-     validates :agreementNumber, presence: true, uniqueness: true
-     #validates :articleNumber, presence: true
+     belongs_to :articles
+     has_many :transaction, dependent: :destroy
+     validates :agreementNumber, presence: {message: 'El código del acuerdo es requerido'}, uniqueness: true
+     validates :description, presence: true
 end
