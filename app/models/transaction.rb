@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
-    has_many :trade
+    has_many :trade, dependent: :destroy
     enum status: [:Pendiente, :Finalizado, :En_Ejecución]
 
     validates :trade_id, presence: true, uniqueness: true

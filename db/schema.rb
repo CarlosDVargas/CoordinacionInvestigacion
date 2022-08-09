@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_08_172124) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_09_000454) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -90,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_08_172124) do
     t.integer "trade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "transaction_id", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -121,5 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_08_172124) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "project_investigators", "investigators"
   add_foreign_key "project_investigators", "projects", on_delete: :cascade
+  add_foreign_key "trades", "transactions"
   add_foreign_key "transactions", "agreements"
 end
