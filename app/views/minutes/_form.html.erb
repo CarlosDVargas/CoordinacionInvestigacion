@@ -1,15 +1,5 @@
 <div class="container">
   <%= form_with(model: minute) do |form| %>
-    <% if minute.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(minute.errors.count, "error") %> prohibited this minute from being saved:</h2>
-        <ul>
-          <% minute.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
     <div class="row pb-2">
       <%= form.label "Número", style: "display: block"%>
       <%= form.number_field :number, class: "form-control" %>

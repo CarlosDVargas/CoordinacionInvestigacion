@@ -1,3 +1,16 @@
+<div class="container mt-4">
+  <% if @minute.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <h2 class="alert-heading"><%= pluralize(@minute.errors.count, "error") %> prohibited this minute from being saved:</h2>
+      <ul>
+        <% @minute.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>
 <div class="container mt-3 pt-5 pb-5 ps-5 pe-5 border border-2 rounded-3">
   <div class="row mb-3 text-center">
     <h1 class=>Nueva acta</h1>
